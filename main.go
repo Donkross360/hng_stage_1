@@ -23,7 +23,7 @@ type Resp struct {
 
 // Define the structure for error response
 type ErrorResp struct {
-	Number string `json:"invalid-input"`
+	Number string `json:"alphabet"`
 	Error  bool   `json:"error"`
 }
 
@@ -37,7 +37,7 @@ func main() {
 func numberHandler(w http.ResponseWriter, r *http.Request) {
 	numberParam := r.URL.Query().Get("number")
 	if numberParam == "" {
-		sendErrorResponse(w, "undefined", http.StatusBadRequest)
+		sendErrorResponse(w, "invalid-input", http.StatusBadRequest)
 		return
 	}
 
