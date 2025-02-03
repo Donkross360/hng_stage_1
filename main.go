@@ -43,7 +43,7 @@ func numberHandler(w http.ResponseWriter, r *http.Request) {
 
 	number, err := strconv.Atoi(numberParam)
 	if err != nil {
-		sendErrorResponse(w, numberParam, http.StatusBadRequest)
+		sendErrorResponse(w, "invalid-input", http.StatusBadRequest)
 		return
 	}
 
