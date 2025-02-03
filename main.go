@@ -37,13 +37,13 @@ func main() {
 func numberHandler(w http.ResponseWriter, r *http.Request) {
 	numberParam := r.URL.Query().Get("number")
 	if numberParam == "" {
-		sendErrorResponse(w, "numberParam", http.StatusBadRequest)
+		sendErrorResponse(w, numberParam, http.StatusBadRequest)
 		return
 	}
 
 	number, err := strconv.Atoi(numberParam)
 	if err != nil {
-		sendErrorResponse(w, "numberParam", http.StatusBadRequest)
+		sendErrorResponse(w, numberParam, http.StatusBadRequest)
 		return
 	}
 
